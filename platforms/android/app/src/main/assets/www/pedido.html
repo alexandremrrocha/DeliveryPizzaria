@@ -1,0 +1,266 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>    
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>	
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/interface.css" />
+		<link rel="stylesheet" href="css/fa/css/all.css" />
+		<link href="endereco.html" />
+		<script src="js/jquery-3.3.1.js"></script>
+		<script src="js/bootstrap.js"></script>			
+		<script src="js/script.js"></script>
+        <title>Restaurante</title>
+    </head>
+    <body>
+		<!-- Navegação -->
+        <div class="topnav" id="myTopnav">
+			<img src="img/logoBranca.png" height=50px; style="float:left;"></img>
+			<a href="index.html">Início</a>
+			<a href="pedido.html" class="active">Pedido</a>
+			<a href="camera.html">Camera</a>
+		<!-- <a href="encomenda.html">Encomenda</a> -->
+			<a href="contato.html">Contatos</a>
+			<a href="informacao.html">Quem Somos</a>
+			
+			<a href="javascript:void(0);" class="icon" onclick="nav()">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+		<!--Pizza-->
+		<h5 align="center"> Pizzas </h5>
+		<table>
+			<tr>
+				<td>
+					<img src="img/pedidos/PizzaPicante.jpg" height=150px;></img>
+				</td>
+				<td>
+					<img src="img/pedidos/PizzaPortuguesa.jpg" height=150px;></img>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<a href="#" class="btn btn-danger">R$45,00</a>
+				</td>
+				<td>
+					<a href="#" class="btn btn-danger">R$50,00</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="color:green; font-size:13px;">
+					<input id="pizzapi" type="checkbox" name="opcao" style="background-color:#FF0000;" value="40">
+					Adicionar ao pedido</div>
+				</td>
+				<td>
+					<div style="color:green; font-size:13px;">
+					<input id="pizzapo" type="checkbox" name="opcao" value="50">
+					Adicionar ao pedido</div>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<img src="img/pedidos/PizzaMarguerita.jpg" height=150px;></img>
+				</td>
+				<td>
+					<img src="img/pedidos/PizzaVegetariana.jpg" height=150px;></img>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<a href="#" class="btn btn-danger">R$45,00</a>
+				</td>
+				<td>
+					<a href="#" class="btn btn-danger">R$48,00</a>
+				</td>
+			</tr>
+			
+			<tr>
+			<td>
+				<div style="color:green; font-size:13px;">
+				<input id="pizzam" type="checkbox" name="opcao" value="45">
+				Adicionar ao pedido</div>
+			</td>
+			<td>
+				<div style="color:green; font-size:13px;">
+				<input id="pizzave" type="checkbox" name="opcao" value="48">
+				Adicionar ao pedido</div>
+			</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<img src="img/pedidos/PizzaBanana.jpg" height=150px;></img>
+				</td>
+				<td>
+					<img src="img/pedidos/Pizza4Estacoes.jpg" height=150px;></img>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<a href="#" class="btn btn-danger">R$45,00</a>
+				</td>
+				<td>
+					<a href="#" class="btn btn-danger">R$60,00</a>
+				</td>
+			</tr>
+			
+			<tr>
+			<td>
+				<div style="color:green; font-size:13px;">
+				<input id="pizzaba" type="checkbox" name="opcao" value="45">
+				Adicionar ao pedido</div>
+			</td>
+			<td>
+				<div style="color:green; font-size:13px;">
+				<input id="pizzaest" type="checkbox" name="opcao" value="60">
+				Adicionar ao pedido</div>
+			</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<img src="img/pedidos/PizzaAgridoce.jpg" height=150px;></img>
+				</td>
+				<td>
+					<img src="img/pedidos/PizzaPresunto.jpg" height=150px;></img>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<a href="#" class="btn btn-danger">R$43,00</a>
+				</td>
+				<td>
+					<a href="#" class="btn btn-danger">R$53,00</a>
+				</td>
+			</tr>
+			
+			<td>
+				<div style="color:green; font-size:13px;">
+				<input id="pizzaagri" type="checkbox" name="opcao" value="43">
+				Adicionar ao pedido</div>
+			</td>
+			<td>
+				<div style="color:green; font-size:13px;">
+				<input id="pizzapre" type="checkbox" name="opcao" value="53">
+				Adicionar ao pedido</div>
+			</td>
+			</tr>
+		</table>
+		<!--Bebidas-->
+		<h5 align="center"> Bebidas </h5>
+		<table>
+			<tr>
+				<td>
+					<img src="img/Bebidas/CocaCola.jpg" height=150px;></img>
+				</td>
+				<td>
+					<img src="img/Bebidas/fantaLaranja.jpg" height=150px;></img>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<a href="#" class="btn btn-danger">R$9,00</a>
+				</td>
+				<td>
+					<a href="#" class="btn btn-danger">R$8,00</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="color:green; font-size:13px;">
+					<input id="coca" type="checkbox" name="opcao" value="9">
+					Adicionar ao pedido</div>
+				</td>
+				<td>
+					<div style="color:green; font-size:13px;">
+					<input id="fantal" type="checkbox" name="opcao" value="8">
+					Adicionar ao pedido</div>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<img src="img/Bebidas/fantaUva.jpg" height=150px;></img>
+				</td>
+				<td>
+					<img src="img/Bebidas/SucoLataUva.jpg" height=150px;></img>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<a href="#" class="btn btn-danger">R$7,00</a>
+				</td>
+				<td>
+					<a href="#" class="btn btn-danger">R$4,00</a>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="color:green; font-size:13px;">
+					<input id="fantau" type="checkbox" name="opcao" value="7">
+					Adicionar ao pedido</div>
+				</td>
+				<td>
+					<div style="color:green; font-size:13px;">
+					<input id="sucou" type="checkbox" name="opcao" value="4">
+					Adicionar ao pedido</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<img src="img/Bebidas/SucoLataManga.jpg" height=150px;></img>
+				</td>
+				<td>
+					<img src="img/Bebidas/SucoLataGoiaba.jpg" height=150px;></img>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<a href="#" class="btn btn-danger">R$4,00</a>
+				</td>
+				<td>
+					<a href="#" class="btn btn-danger">R$4,00</a>
+				</td>
+			</tr>
+			
+			<tr>
+				
+				<td>
+					<div style="color:green; font-size:13px;">
+					<input id="sucom" type="checkbox" name="opcao" value="4">
+					Adicionar ao pedido</div>
+				</td>
+				<td>
+					<div style="color:green; font-size:13px;">
+					<input id="sucog" type="checkbox" name="opcao" value="4">
+					Adicionar ao pedido</div>
+				</td>
+			</tr>
+		</table>
+		<button class="btn btn-success" type="button" onclick="compra();" style="margin: 10px 0 50px 20px;">Finalizar compra</button>
+		<!-- Footer - rodapé -->
+		<footer>
+			<div class="rodape">
+				<p>Desenvolvido por Alexandre</p>
+			</div>
+		</footer>
+        <script type="text/javascript" src="js/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Restaurante</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/interface.css" />
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+		
+	</head>
+	<body>
+		
+		<div class="container">
+				<form action="#" method="post" name="email">
+					<fieldset>
+						<legend>Envie-nos um email</legend>
+							<div class="form-group">
+								<label for="nome">Nome:</label>
+								<input type="text" name="nome" id="nome" class="form-control" />
+							</div>
+							
+							<div class="form-group">
+								<label for="telefone">Telefone:</label>
+								<input type="text" name="telefone" id="telefone" class="form-control" />
+							</div>
+							
+							<div class="form-group">
+								<label for="email">Email:</label>
+								<input type="email" name="email" id="email" class="form-control" />
+							</div>
+							
+							<div class="form-group">
+								<label for="mensagem">Mensagem:</label>
+								<div>
+								<textarea id="mensagem" name="mensagem" rows="2" cols="30"></textarea>
+								</div>
+							</div>
+							
+							<div class="form-group">
+							<button class="btn btn-warning"><a href="contato.html"/>Voltar</a></button>
+							<button class="btn btn-primary" type="reset">Limpar</button>
+							<button class="btn btn-danger" type="submit" >Enviar</button>
+							
+							</div>
+					</fieldset>
+				</form>
+			</div>
+		</body>
+		
+</html>

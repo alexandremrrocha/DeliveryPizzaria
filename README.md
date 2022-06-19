@@ -1,0 +1,3 @@
+# App Hibrido - Delivery Pizzaria
+
+Este foi um pequeno projeto na qual foi feito um app hibrido usando o framework do cordova para gerar o apk. Se trata de um app de delivery, que armazena os dados de endereço do cliente, também os dados do pedido, para que assim no futuro possa ate mesmo ser implementado, promoções em produtos que são de maior interesse do cliente em especifico! Além disso o APP é capaz de tirar fotos que são armazenadas no banco de dados também e também é possivel escaner QRCodes! O banco de dados utilizado foi o Firebase! Fique a vontade para testa-lo e contribuir com novas features!

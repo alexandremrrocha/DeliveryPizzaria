@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>    
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/interface.css" />
+		<link rel="stylesheet" href="css/fa/css/all.css" />
+		<script src="js/jquery-3.3.1.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="js/script.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+		<script>
+			 var firebaseConfig = {
+				apiKey: "AIzaSyB_m95pi2aK6ErEb8HckTVQGty1mAdEWik",
+				authDomain: "restaurante-pedidos.firebaseapp.com",
+				databaseURL: "https://restaurante-pedidos.firebaseio.com",
+				storageBucket: "gs://restaurante-pedidos.appspot.com/"
+			  };
+			  // Initialize Firebase
+			  firebase.initializeApp(firebaseConfig);
+
+			<!-- $(document).ready(function(){ -->
+				<!-- $(window).on("scroll", function(){ -->
+					<!-- var window_scroll_top = $(window).scrollTop(); -->
+					<!-- var window_height = $(window).height(); -->
+					<!-- var window_sum = window_scroll_top + window_height; -->
+					<!-- var document_height = $(document).height(); -->
+					<!-- var dif = document_height - window_sum; -->
+					<!-- if(dif <= 0){ -->
+						<!-- count++; -->
+						<!-- $("#content").append("<br><p>Teste["+count+"]</p><br>"); -->
+					<!-- } -->
+				<!-- }); -->
+			<!-- }); -->
+			
+		</script> 
+		
+        <title>Restaurante</title>
+    </head>
+    <body>
+	<!-- Navegação -->
+        <div class="topnav" id="myTopnav">
+		    <img src="img/logoBranca.png" height=50px; style="float:left;"></img>
+			<a href="index.html">Início</a>
+			<a href="pedido.html" >Pedido</a>
+			<a href="#" class="active">Camera</a>
+			<!-- <a href="encomenda.html">Encomenda</a> -->
+			<a href="contato.html">Contatos</a>
+			<a href="informacao.html">Quem Somos</a>
+
+			<a href="javascript:void(0);" class="icon" onclick="nav()">
+				<i class="fa fa-bars"></i>
+			</a>
+		</div>
+	<!--O texto-->
+	<div class="fundo">
+		<div class="efeito">
+			<div class="container">
+				<h4 style="margin: 50px 0 30px 0;">Império das Pizzas</h4>
+				<p style="font-size:15px;">Tire aqui a sua foto ou escaneie o nosso codigo de barra<i class="far fa-smile-wink"></i></i></p>
+			</div>
+			<!--As funções foto e CodeBar-->
+			<div style="text-align: center;">
+				 <button onclick="foto()" class="btn btn-success">Tirar Foto</button>
+				 <button onclick="codbar()" class="btn btn-info">Escanear</button>
+			<div>
+			<!--O botao input-->
+			<div>
+				<input type="file" value="upload" id="fileButton" style="margin: 10px; width: 147px;"/>
+			</div>
+			<!--Barra de progresso-->
+			<div>
+				<progress value="0" max="100" id="uploader" style="width: 250px;">0%</progress>
+			</div>
+			<!--A imagem da foto tirada-->
+			<div>
+				<img id="myImage" style="height: 150px;"/>
+			</div>
+			
+		</div>
+	</div>
+		
+	<!-- Footer - rodapé -->
+		<div class="rodape">
+			<p>Desenvolvido por Alexandre</p>
+		</div>
+	
+			<script type="text/javascript" src="cordova.js"></script>
+			<script type="text/javascript" src="js/index.js"></script>
+			<script>
+			
+		    var uploader = document.getElementById('uploader');
+		  	var fileButton =  document.getElementById('fileButton');
+			
+			<!-- function foto(){ -->
+				<!-- navigator.camera.getPicture(onSuccess, onFail,  -->
+				<!-- {quality: 50, width: 70, height: 60, destinationType:  -->
+				<!-- Camera.DestinationType.FILE_URI });  -->
+				<!-- function onSuccess(imageURI) {  -->
+				<!-- var image = document.getElementById('myImage');   -->
+				<!-- image.src = imageURI;   -->
+				<!-- //fileButton=document.getElementById('myImage').value(imageURI); -->
+				<!-- }   -->
+				<!-- function onFail(message) {   -->
+				<!-- alert('Failed because: ' + message); }   -->
+			<!-- } -->
+		
+		  	fileButton.addEventListener('change', function(e){
+		  		var file = e.target.files[0];
+
+		  		var storageRef = firebase.storage().ref('Fotos/'+file.name);
+
+		  		var task = storageRef.put(file);
+
+		  		task.on('state_changed',
+
+		  			function progress(snapshot){
+		  				var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+		  				uploader.value = percentage;
+		  			},
+
+		  			function error(err){
+
+		  			},
+
+		  			function complete(){
+		  				alert("Imagem salva com sucesso!");
+		  			}
+
+		  			);
+		  	});
+			
+			
+	
+	
+	</script>
+    </body>
+</html>
